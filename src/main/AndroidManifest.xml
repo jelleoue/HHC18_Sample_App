@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jelleoue.hhcgeobot">
+
+
+    <!-- NORMAL PERMISSIONS: explicit user confirmation not needed -->
+    <!-- Internet connectivity (for data synchro) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Used for BLE-based location -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- Used for WiFi-based location -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- to allow WIFI/BLE scan when app is in background mode -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- SENSITIVE PERMISSIONS: user will be prompted for acceptation by Android OS -->
+    <!-- access to OS Loc / GPS and BLE sensor (since Android 6)-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Add permission WRITE_EXTERNAL_STORAGE (limited to sdk<=18) -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service android:name=".services.LBSService" />
+        <activity android:name=".MainActivity" android:launchMode="singleTask" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- intent -->
+
+            <intent-filter android:autoVerify="true" android:label="lbsapp">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http"
+                    android:host="ec2-52-14-144-186.us-east-2.compute.amazonaws.com"
+                    android:pathPrefix="/lbsapp"                      />
+
+            </intent-filter>
+
+        </activity>
+
+
+    </application>
+
+</manifest>

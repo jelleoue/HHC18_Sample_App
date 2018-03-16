@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="io.mapwize.indoormaps:MapwizeForMapbox-1.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/MapwizeForMapbox-1.0.1.aar/3bd06b1da7d2646915c37d366e6428bc/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/MapwizeForMapbox-1.0.1.aar/3bd06b1da7d2646915c37d366e6428bc/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
